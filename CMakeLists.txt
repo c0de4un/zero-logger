@@ -11,10 +11,10 @@ cmake_minimum_required( VERSION 3.16 )
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Project Name
-set( PROJECT_NAME "zero.Logger" )
+set( PROJECT_NAME "zero.Logger.Root" )
 
 # Project Version
-set( PROJECT_VERSION 0.1.0 )
+set( PROJECT_VERSION 1.0 )
 
 # Project Description
 set( PROJECT_DESCRIPTION "" )
@@ -50,6 +50,7 @@ include( "cmake/compiler.cmake" )
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Library
+add_subdirectory( "src/lib/core" )
 
 # Test-App
 if ( ZERO_LOGGER_TEST )

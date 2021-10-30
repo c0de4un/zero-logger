@@ -34,32 +34,8 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // HEADER
-#include "../public/main.hpp"
-
-// Include STL iostream
-#include <iostream>
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// MAIN
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-int main()
-{
-    std::cout << "\n= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =\n";
-
-    zLog::Initialize( new zDefaultLogger() );
-
-    zLog::info( u8"Привет дивный мир !" );
-    zLog::warning_w( L"Это строка в UTF-16" );
-
-    zLog::Terminate();
-
-    std::cout << "\n= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =\n";
-
-    std::cout << "\n\nPress any key ot exit\n";
-    std::cin.get();
-
-    return 0;
-}
+#ifndef ZERO_LOGGER_HPP
+#include "../public/zero/core/zero_logger.hpp"
+#endif // !ZERO_LOGGER_HPP
 
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =

@@ -11,13 +11,10 @@ cmake_minimum_required( VERSION 3.16 )
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Project Name
-set( PROJECT_NAME "zero.Logger.Core" )
+set( PROJECT_NAME "zero.Logger" )
 
 # Project Version
-set( PROJECT_VERSION 0.1.0 )
-
-# Sources Dir
-set( ZERO_SRC_DIR "${CMAKE_SOURCE_DIR}/src" )
+set( PROJECT_VERSION 1.0 )
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # PROJECT
@@ -31,7 +28,6 @@ project( ${PROJECT_NAME} VERSION ${PROJECT_VERSION} LANGUAGES C CXX )
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Core
-
-# Platform
+add_subdirectory( "${CMAKE_CURRENT_SOURCE_DIR}/core" )
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =

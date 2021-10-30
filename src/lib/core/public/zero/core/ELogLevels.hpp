@@ -27,39 +27,55 @@
  * POSSIBILITY OF SUCH DAMAGE.
 **/
 
+#ifndef ZERO_CORE_E_LOG_LEVELS_HPP
+#define ZERO_CORE_E_LOG_LEVELS_HPP
+
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// INCLUDES
+// TYPES
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-// HEADER
-#include "../public/main.hpp"
-
-// Include STL iostream
-#include <iostream>
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// MAIN
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-int main()
+namespace zero
 {
-    std::cout << "\n= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =\n";
 
-    zLog::Initialize( new zDefaultLogger() );
+    namespace core
+    {
 
-    zLog::info( u8"Привет дивный мир !" );
-    zLog::warning_w( L"Это строка в UTF-16" );
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    zLog::Terminate();
+        /**
+         * @brief
+         * ELogLevels - log-levels enumeration
+         * 
+         * @version 1.0
+        **/
+        enum class ELogLevels
+        {
 
-    std::cout << "\n= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =\n";
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    std::cout << "\n\nPress any key ot exit\n";
-    std::cin.get();
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+            // CONSTANTS
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    return 0;
-}
+            INFO    = 1,
+            DEBUG   = 2,
+            WARNING = 3,
+            ERROR   = 4
+
+            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+        }; /// zero::core::ELogLevels
+
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    } /// zero::core
+
+} /// zero
+
+using zELogLevels = zero::core::ELogLevels;
 
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+#endif // !ZERO_CORE_E_LOG_LEVELS_HPP

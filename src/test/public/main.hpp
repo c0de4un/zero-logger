@@ -35,7 +35,8 @@
 // INCLUDES
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-// Include STL iostream
-#include <iostream>
+// Include zlog
+#include <zero/core/Log.hpp>
+#include <zero/core/DefaultLogger.hpp>
 
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =

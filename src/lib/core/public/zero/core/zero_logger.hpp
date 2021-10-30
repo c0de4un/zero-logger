@@ -27,39 +27,21 @@
  * POSSIBILITY OF SUCH DAMAGE.
 **/
 
+#ifndef ZERO_LOGGER_HPP
+#define ZERO_LOGGER_HPP
+
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // INCLUDES
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-// HEADER
-#include "../public/main.hpp"
+// Include zero::core::Log
+#include "Log.hpp"
 
-// Include STL iostream
-#include <iostream>
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// MAIN
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-int main()
-{
-    std::cout << "\n= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =\n";
-
-    zLog::Initialize( new zDefaultLogger() );
-
-    zLog::info( u8"Привет дивный мир !" );
-    zLog::warning_w( L"Это строка в UTF-16" );
-
-    zLog::Terminate();
-
-    std::cout << "\n= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =\n";
-
-    std::cout << "\n\nPress any key ot exit\n";
-    std::cin.get();
-
-    return 0;
-}
+// Include DefaultLogger
+#include "DefaultLogger.hpp"
 
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+#endif // !ZERO_LOGGER_HPP
