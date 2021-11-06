@@ -4,20 +4,17 @@
 # CMAKE
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-cmake_minimum_required( VERSION 3.16 )
+cmake_minimum_required( VERSION ${CMAKE_VERSION} )
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # CONFIGS
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Project Name
-set( PROJECT_NAME "zero.Logger.Test" )
-
-# Project Version
-set( PROJECT_VERSION 1.0 )
+set( PROJECT_NAME "zlog.test" )
 
 # Sources Dir
-set( SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}" )
+set( SRC_DIR "${CMAKE_SOURCE_DIR}/src/test" )
 set( SRC_PUBLIC_DIR "${SRC_DIR}/public/" )
 set( SRC_PRIVATE_DIR "${SRC_DIR}/private/" )
 
@@ -47,15 +44,15 @@ set( ZERO_SOURCES
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Add Executable-Object
-add_executable( zlogger-test ${ZERO_HEADERS} ${ZERO_SOURCES} )
-
-# Configure Executable-Object
-set_target_properties( zlogger-test PROPERTIES
-    RUNTIME_OUTPUT_NAME "zlogger-test"
-    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin" )
+add_executable( zlog_test ${ZERO_HEADERS} ${ZERO_SOURCES} )
 
 # Link
-target_include_directories( zlogger-test PUBLIC "${CMAKE_SOURCE_DIR}/src/lib/core/public" )
-target_link_libraries( zlogger-test zlog )
+target_include_directories( zlog_test PUBLIC "${CMAKE_SOURCE_DIR}/src/lib/public" )
+target_link_libraries( zlog_test zlog )
+
+# Configure Executable-Object
+set_target_properties( zlog_test PROPERTIES
+    RUNTIME_OUTPUT_NAME "zlog_test_v${PROJECT_VERSION}"
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin" )
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =

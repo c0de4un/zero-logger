@@ -27,55 +27,15 @@
  * POSSIBILITY OF SUCH DAMAGE.
 **/
 
-#ifndef ZERO_CORE_E_LOG_LEVELS_HPP
-#define ZERO_CORE_E_LOG_LEVELS_HPP
-
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// TYPES
+// INCLUDES
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-namespace zero
-{
-
-    namespace core
-    {
-
-        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-        /**
-         * @brief
-         * ELogLevels - log-levels enumeration
-         * 
-         * @version 1.0
-        **/
-        enum class ELogLevels
-        {
-
-            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-            // CONSTANTS
-            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-            INFO    = 1,
-            DEBUG   = 2,
-            WARNING = 3,
-            ERROR   = 4
-
-            // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-        }; /// zero::core::ELogLevels
-
-        // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    } /// zero::core
-
-} /// zero
-
-using zELogLevels = zero::core::ELogLevels;
+// HEADER
+#ifndef ZERO_LOGGER_HPP
+#include "../../public/zlog/zero_logger.hpp"
+#endif // !ZERO_LOGGER_HPP
 
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-
-#endif // !ZERO_CORE_E_LOG_LEVELS_HPP

@@ -4,40 +4,18 @@
 # CMAKE
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-cmake_minimum_required( VERSION 3.16 )
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# CONFIGS
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# Project Name
-set( PROJECT_NAME "zero.Logger.Root" )
-
-# Project Version
-set( PROJECT_VERSION 1.0 )
-
-# Project Description
-set( PROJECT_DESCRIPTION "" )
-
-# Platform
-include( "cmake/platform.cmake" )
-
-# Debug
-include( "cmake/buildType.cmake" )
-
-# Test-App
-if ( NOT DEFINED ZERO_LOGGER_TEST )
-    message( STATUS "${PROJECT_NAME} - tests enabled. Set <ZERO_LOGGER_TEST> to <OFF>, if you dont need them" )
-
-    set( ZERO_LOGGER_TEST ON )
-endif ( NOT DEFINED ZERO_LOGGER_TEST )
-
-# Sources Dir
-set( ZERO_SRC_DIR "${CMAKE_SOURCE_DIR}/src" )
+set( CMAKE_VERSION 3.16 )
+cmake_minimum_required( VERSION ${CMAKE_VERSION} )
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # PROJECT
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Project Name
+set( PROJECT_NAME "zlog" )
+
+# Project Version
+set( PROJECT_VERSION 1.1 )
 
 # Configure Project
 project( ${PROJECT_NAME} VERSION ${PROJECT_VERSION} LANGUAGES C CXX )
@@ -46,15 +24,36 @@ project( ${PROJECT_NAME} VERSION ${PROJECT_VERSION} LANGUAGES C CXX )
 include( "cmake/compiler.cmake" )
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# CONFIGS
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Options
+include( "cmake/options.cmake" )
+
+# Platform
+include( "cmake/platform.cmake" )
+
+# Debug
+include( "cmake/buildType.cmake" )
+
+# Test-App
+if ( ZLOG_TEST_ENABLED )
+    message( STATUS "${PROJECT_NAME} - <ZLOG_TEST_ENABLED> is ON" )
+endif ( ZLOG_TEST_ENABLED )
+
+# Sources Dir
+set( ZERO_SRC_DIR "${CMAKE_SOURCE_DIR}/src" )
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # MODULES
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Library
-add_subdirectory( "src/lib/core" )
+add_subdirectory( "src/lib" )
 
 # Test-App
-if ( ZERO_LOGGER_TEST )
+if ( ZLOG_TEST_ENABLED )
     add_subdirectory( "src/test" )
-endif ( ZERO_LOGGER_TEST )
+endif ( ZLOG_TEST_ENABLED )
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =

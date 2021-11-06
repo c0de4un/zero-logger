@@ -33,7 +33,7 @@ zeroEngine Logger - Part of zeroSDK
  {
 #if defined( DEBUG ) // DEBUG
      const std::wstring unicodeStr( L"Здравствуй дивный мир !" );
-     zLog::printw( unicodeStr.c_str(), zELogLevel::INFO );
+     zLog::print_w( unicodeStr.c_str(), zELogLevel::INFO );
 #endif // DEBUG
 
      return 0;

@@ -35,7 +35,7 @@
 
 // HEADER
 #ifndef ZERO_CORE_DEFAULT_LOGGER_HPP
-#include "../public/zero/core/DefaultLogger.hpp"
+#include "../../public/zlog/DefaultLogger.hpp"
 #endif // !ZERO_CORE_DEFAULT_LOGGER_HPP
 
 // Include STL iostream

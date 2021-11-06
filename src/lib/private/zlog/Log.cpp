@@ -35,12 +35,12 @@
 
 // HEADER
 #ifndef ZERO_CORE_LOG_HPP
-#include "../public/zero/core/Log.hpp"
+#include "../../public/zlog/Log.hpp"
 #endif // !ZERO_CORE_LOG_HPP
 
 // Include ILogger
 #ifndef ZERO_CORE_I_LOGGER_HXX
-#include "../public/zero/core/ILogger.hxx"
+#include "../../public/zlog/ILogger.hxx"
 #endif // !ZERO_CORE_I_LOGGER_HXX
 
 // DEBUG
@@ -48,7 +48,7 @@
 
 // Include assert
 #ifndef ZERO_ASSERT_HPP
-#include "../public/zero/core/cfg/zero_assert.hpp"
+#include "../../public/zlog/cfg/zero_assert.hpp"
 #endif // !ZERO_ASSERT_HPP
 
 #endif
@@ -191,19 +191,19 @@ namespace zero
 
             switch( logLevel )
             {
-                case zELogLevels::INFO:
+                case zELogLevels::LEVEL_INFO:
                     info( pMessage );
                 break;
 
-                case zELogLevels::DEBUG:
+                case zELogLevels::LEVEL_DEBUG:
                     debug( pMessage );
                 break;
 
-                case zELogLevels::WARNING:
+                case zELogLevels::LEVEL_WARNING:
                     warning( pMessage );
                 break;
 
-                case zELogLevels::ERROR:
+                case zELogLevels::LEVEL_ERROR:
                     error( pMessage );
                 break;
             }
@@ -215,19 +215,19 @@ namespace zero
 
             switch( logLevel )
             {
-                case zELogLevels::INFO:
+                case zELogLevels::LEVEL_INFO:
                     info_w( pMessage );
                 break;
 
-                case zELogLevels::DEBUG:
+                case zELogLevels::LEVEL_DEBUG:
                     debug_w( pMessage );
                 break;
 
-                case zELogLevels::WARNING:
+                case zELogLevels::LEVEL_WARNING:
                     warning_w( pMessage );
                 break;
 
-                case zELogLevels::ERROR:
+                case zELogLevels::LEVEL_ERROR:
                     error_w( pMessage );
                 break;
             }
