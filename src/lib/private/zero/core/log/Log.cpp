@@ -35,12 +35,12 @@
 
 // HEADER
 #ifndef ZERO_CORE_LOG_HPP
-#include "../../public/zlog/Log.hpp"
+#include "../../../../public/zero/core/log/Log.hpp"
 #endif // !ZERO_CORE_LOG_HPP
 
 // Include ILogger
 #ifndef ZERO_CORE_I_LOGGER_HXX
-#include "../../public/zlog/ILogger.hxx"
+#include "../../../../public/zero/core/log/ILogger.hxx"
 #endif // !ZERO_CORE_I_LOGGER_HXX
 
 // DEBUG
@@ -48,7 +48,7 @@
 
 // Include assert
 #ifndef ZERO_ASSERT_HPP
-#include "../../public/zlog/cfg/zero_assert.hpp"
+#include "../../../../public/zero/core/cfg/zero_assert.hpp"
 #endif // !ZERO_ASSERT_HPP
 
 #endif

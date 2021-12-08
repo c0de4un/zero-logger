@@ -11,7 +11,7 @@ cmake_minimum_required( VERSION ${CMAKE_VERSION} )
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Project Name
-set( PROJECT_NAME "zlog.lib" )
+set( PROJECT_NAME "zero-logger.lib" )
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # PROJECT
@@ -24,7 +24,7 @@ project( ${PROJECT_NAME} VERSION ${PROJECT_VERSION} LANGUAGES C CXX )
 # HEADERS
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-set( HEADERS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/public/zlog/" )
+set( HEADERS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/public/zero/core/" )
 
 # Config Headers
 if ( NOT DEFINED ZERO_CONFIGS_INCLUDED )
@@ -37,42 +37,42 @@ if ( NOT DEFINED ZERO_CONFIGS_INCLUDED )
 endif ( NOT DEFINED ZERO_CONFIGS_INCLUDED )
 
 set( HEADERS
-    "${HEADERS_DIR}ILogger.hxx"
-    "${HEADERS_DIR}ELogLevels.hpp"
-    "${HEADERS_DIR}Log.hpp"
-    "${HEADERS_DIR}DefaultLogger.hpp"
-    "${HEADERS_DIR}zero_logger.hpp" )
+    "${HEADERS_DIR}log/ILogger.hxx"
+    "${HEADERS_DIR}log/ELogLevels.hpp"
+    "${HEADERS_DIR}log/Log.hpp"
+    "${HEADERS_DIR}log/DefaultLogger.hpp" )
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # SOURCES
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-set( SOURCES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/private/zlog/" )
+set( SOURCES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/private/zero/core/" )
 set( SOURCES
-    "${SOURCES_DIR}Log.cpp"
-    "${SOURCES_DIR}DefaultLogger.cpp"
-    "${SOURCES_DIR}zero_logger.cpp" )
+    "${SOURCES_DIR}log/Log.cpp"
+    "${SOURCES_DIR}log/DefaultLogger.cpp" )
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # BUILD
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+message( STATUS "${PROJECT_NAME} - building ${ZERO_BUILD_TYPE} Library" )
 if ( ZERO_BUILD_TYPE STREQUAL "STATIC" )
     # Add STATIC Library Object
-    add_library( zlog STATIC ${SOURCES} )
-
-    message( STATUS "${PROJECT_NAME} - building STATIC Library" )
+    add_library( zero_logger STATIC ${SOURCES} )
 else ( ZERO_BUILD_TYPE STREQUAL "STATIC" )
     # Add SHARED Library Object
-    add_library( zlog SHARED ${SOURCES} )
+    add_library( zero_logger SHARED ${SOURCES} )
 
     # Configure SHARED Library Object
-    set_target_properties( zlog PROPERTIES
+    set_target_properties( zero_logger PROPERTIES
         VERSION ${PROJECT_VERSION}
-        LIBRARY_OUTPUT_NAME "zlog"
-        LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin" )
-
-    message( STATUS "${PROJECT_NAME} - building SHARED Library" )
+        LIBRARY_OUTPUT_NAME "zero_logger"
+        RUNTIME_OUTPUT_DIRECTORY "${ZERO_OUTPUT_DIR}"
+        ARCHIVE_OUTPUT_DIRECTORY "${ZERO_OUTPUT_DIR}"
+        LIBRARY_OUTPUT_DIRECTORY "${ZERO_OUTPUT_DIR}" )
 endif ( ZERO_BUILD_TYPE STREQUAL "STATIC" )
+
+# Link with zero-config
+target_include_directories( zero_logger PUBLIC ${ZERO_CONFIG_INCLUDE_DIR} )
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =

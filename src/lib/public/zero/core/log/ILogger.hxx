@@ -38,7 +38,7 @@
 
 // Include zero::api
 #ifndef ZERO_API_HPP
-#include "cfg/zero_api.hpp"
+#include <zero/core/cfg/zero_api.hpp>
 #endif // !ZERO_API_HPP
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -4,7 +4,10 @@
 # CMAKE
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-set( CMAKE_VERSION 3.16 )
+if ( NOT DEFINED CMAKE_VERSION )
+    set( CMAKE_VERSION 3.16 )
+endif ( NOT DEFINED CMAKE_VERSION )
+
 cmake_minimum_required( VERSION ${CMAKE_VERSION} )
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -12,10 +15,10 @@ cmake_minimum_required( VERSION ${CMAKE_VERSION} )
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Project Name
-set( PROJECT_NAME "zlog" )
+set( PROJECT_NAME "zero-logger" )
 
 # Project Version
-set( PROJECT_VERSION 1.1 )
+set( PROJECT_VERSION 1.2 )
 
 # Configure Project
 project( ${PROJECT_NAME} VERSION ${PROJECT_VERSION} LANGUAGES C CXX )
@@ -33,7 +36,7 @@ include( "cmake/options.cmake" )
 # Platform
 include( "cmake/platform.cmake" )
 
-# Debug
+# BuildType
 include( "cmake/buildType.cmake" )
 
 # Test-App
@@ -44,6 +47,13 @@ endif ( ZLOG_TEST_ENABLED )
 # Sources Dir
 set( ZERO_SRC_DIR "${CMAKE_SOURCE_DIR}/src" )
 
+# zeroEngine.API
+if ( NOT DEFINED ZERO_CONFIG_INCLUDE_DIR )
+    set( ZERO_CONFIG_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/libs/zero-config/public" )
+
+    message( STATUS "${PROJECT_NAME} - including zero-config" )
+endif ( NOT DEFINED ZERO_CONFIG_INCLUDE_DIR )
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # MODULES
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -52,8 +62,8 @@ set( ZERO_SRC_DIR "${CMAKE_SOURCE_DIR}/src" )
 add_subdirectory( "src/lib" )
 
 # Test-App
-if ( ZLOG_TEST_ENABLED )
+if ( ZERO_TEST_ENABLED )
     add_subdirectory( "src/test" )
-endif ( ZLOG_TEST_ENABLED )
+endif ( ZERO_TEST_ENABLED )
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =

@@ -37,11 +37,11 @@
 
 // Include zlog
 #ifndef ZERO_CORE_LOG_HPP
-#include "../../lib/public/zlog/Log.hpp"
+#include <zero/core/log/Log.hpp>
 #endif // !ZERO_CORE_LOG_HPP
 
 #ifndef ZERO_CORE_DEFAULT_LOGGER_HPP
-#include "../../lib/public/zlog/DefaultLogger.hpp"
+#include <zero/core/log/DefaultLogger.hpp>
 #endif // !ZERO_CORE_DEFAULT_LOGGER_HPP
 
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =

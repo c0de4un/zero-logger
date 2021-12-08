@@ -7,6 +7,10 @@ if ( NOT DEFINED ZERO_COMPILER_CONFIGURED )
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     # C++ Version
+    if ( NOT DEFINED PROJECT_CXX_VERSION )
+        set( PROJECT_CXX_VERSION 14 )
+    endif ( NOT DEFINED PROJECT_CXX_VERSION )
+
     set( CMAKE_CXX_STANDARD ${PROJECT_CXX_VERSION} )
     set( CMAKE_CXX_STANDARD_REQUIRED ON )
 
@@ -22,6 +26,7 @@ if ( NOT DEFINED ZERO_COMPILER_CONFIGURED )
     endif ( CMAKE_CXX_COMPILER_ID STREQUAL "Clang" )
 
     # Enable Position Independent Code
+    set( CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON )
     set( CMAKE_POSITION_INDEPENDENT_CODE ON )
 
     set( ZERO_COMPILER_CONFIGURED ON )
