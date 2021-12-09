@@ -48,11 +48,12 @@
 
 // Include assert
 #ifndef ZERO_ASSERT_HPP
-#include "../../../../public/zero/core/cfg/zero_assert.hpp"
+#include <zero/core/cfg/zero_assert.hpp>
 #endif // !ZERO_ASSERT_HPP
 
 #endif
 // DEBUG
+
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // ILogger
