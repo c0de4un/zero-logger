@@ -1,8 +1,8 @@
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
-if ( NOT DEFINED ZERO_TEST_ENABLED )
-    option( ZERO_TEST_ENABLED "Enable Testing" ON )
-endif ( NOT DEFINED ZERO_TEST_ENABLED )
+if ( NOT DEFINED ZERO_LOG_TEST_ENABLED )
+    set( ZERO_LOG_TEST_ENABLED ON )
+endif ( NOT DEFINED ZERO_LOG_TEST_ENABLED )
 
 if ( NOT DEFINED ZERO_OUTPUT_DIR )
     set( ZERO_OUTPUT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/bin/${PLATFROM}" )

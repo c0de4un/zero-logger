@@ -62,8 +62,8 @@ endif ( NOT DEFINED ZERO_CONFIG_INCLUDE_DIR )
 add_subdirectory( "src/lib" )
 
 # Test-App
-if ( ZERO_TEST_ENABLED )
+if ( ZERO_LOG_TEST_ENABLED )
     add_subdirectory( "src/test" )
-endif ( ZERO_TEST_ENABLED )
+endif ( ZERO_LOG_TEST_ENABLED )
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
